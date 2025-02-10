@@ -5,239 +5,237 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prince Yadav - Portfolio</title>
     <style>
-        /* General Styles */
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
+            background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-
-        a {
-            color: #28a745;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: #218838;
-        }
-
-        /* Header Section */
-        header {
-            background: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-
-        header p {
-            margin: 5px 0;
-            font-size: 1.2rem;
-        }
-
-        /* Navigation */
-        nav {
-            background: #28a745;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            font-size: 1.1rem;
-        }
-
-        nav a:hover {
-            color: #f4f4f4;
-        }
-
-        /* Main Content */
         .container {
-            max-width: 1100px;
-            margin: 20px auto;
+            max-width: 1000px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            animation: fadeIn 1s ease-in-out;
+            margin-bottom: 20px; /* Add margin to separate from the button */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .left-column {
+            text-align: center;
+            background: #2c3e50;
             padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            color: white;
         }
-
-        .section {
-            margin-bottom: 30px;
+        .left-column img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid #3498db;
+            margin-bottom: 20px;
         }
-
-        .section h2 {
-            color: #28a745;
-            border-bottom: 2px solid #28a745;
-            padding-bottom: 5px;
-            font-size: 2rem;
+        .left-column h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .left-column p {
+            font-size: 16px;
+            color: #bdc3c7;
+        }
+        .contact-info p {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .contact-info a:hover {
+            color: #2980b9;
+        }
+        .contact-info i {
+            font-size: 18px;
+            color: #3498db;
+        }
+        .right-column {
+            padding-left: 20px;
+            border-left: 2px solid #eee;
+        }
+        .right-column h2 {
+            color: #444;
+            font-size: 24px;
             margin-bottom: 15px;
+            position: relative;
         }
-
-        .section p {
-            font-size: 1rem;
-            color: #666;
-        }
-
-        .section ul {
+       
+        .right-column ul {
             list-style: none;
             padding: 0;
         }
-
-        .section ul li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .section ul li::before {
-            content: "•";
-            color: #28a745;
-            font-size: 1.5rem;
-            margin-right: 10px;
-        }
-
-        /* Projects Section */
-        .project-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .project-links a {
-            display: block;
-            padding: 15px;
-            background: #28a745;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .project-links a:hover {
-            background: #218838;
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
+        .right-column ul li {
             padding: 10px 0;
-            margin-top: 30px;
+            color: #666;
+            font-size: 16px;
         }
-
-        footer p {
-            margin: 0;
+        .about-section {
+            margin-bottom: 20px;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-
-            .project-links {
-                grid-template-columns: 1fr;
-            }
+        .download-btn {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 200px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
+        .download-btn:hover {
+            background: #2980b9;
+        }
+        .hide {
+            display: none; /* Class to hide the button */
+        }
+        .project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee; /* Optional: Add a separator between items */
+}
+
+.project-name {
+    font-weight: bold;
+    color: #444;
+}
+
+.project-links {
+    display: flex;
+    gap: 10px; /* Space between GitHub and Live Demo links */
+}
+
+.project-links a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.project-links a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
-    <!-- Header -->
-    <header>
+<div class="container">
+    <div class="left-column">
+        <img src="profile.jpeg" alt="Prince's Photo">
         <h1>Prince Yadav</h1>
         <p>Web Developer | Programmer | Designer</p>
-    </header>
-
-    <!-- Navigation -->
-    <nav>
-        <a href="#about">About Me</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- About Me Section -->
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>
-                Hi, I'm Prince Yadav, a passionate and motivated IT student currently pursuing a Diploma in Information Technology from Government Polytechnic, Mahoba. With a strong foundation in HTML, CSS, JavaScript, and Python, I enjoy building creative and functional web applications. My curiosity for technology extends to AI, Data Science, and problem-solving, and I am constantly exploring new tools and frameworks to enhance my skills.
-                <br><br>
-                Currently, I am focusing on mastering Data Structures and Algorithms to improve my problem-solving abilities. My goal is to become a Full-Stack Developer and contribute to innovative tech projects that make a real-world impact. I am eager to apply my knowledge in a professional environment, learn from experienced mentors, and grow as a developer.
-                <br><br>
-                Check out my projects on GitHub and feel free to connect with me to discuss opportunities or collaborations!
-                <br><br>
-                <i>Available for internships and entry-level opportunities in the IT field.</i>
-            </p>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="section">
-            <h2>Skills</h2>
-            <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>Python, NumPy, Pandas</li>
-                <li>Version Control (Git, GitHub)</li>
-            </ul>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="project-links">
-                <a href="https://github.com/warrior-hub/my_projects/blob/master/to-to%20list.html" target="_blank">To-Do List</a>
-                <a href="https://github.com/warrior-hub/my_projects/blob/master/quizapp.html" target="_blank">Quiz App</a>
-                <a href="https://github.com/warrior-hub/my_projects/blob/master/Expense_Tracker.html" target="_blank">Expense Tracker</a>
-                <a href="https://github.com/warrior-hub/my_projects/blob/master/weather.html" target="_blank">Weather App</a>
-                <a href="https://github.com/warrior-hub/myntra-clone" target="_blank">Myntra Clone</a>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="section">
-            <h2>Education</h2>
-            <p><b>Diploma in Information Technology</b></p>
-            <p>Government Polytechnic, Mahoba (2023 - Present)</p>
-            <p><b>High School</b></p>
-            <p>Jawahar Navodaya Vidyalaya (Completed in 2023)</p>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:Jnvianprince@gmail.com">Jnvianprince@gmail.com</a></p>
-            <p>Phone: <a href="tel:+918470937935">+91-8470937935</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/prince-yadav-9b4060305/" target="_blank">linkedin.com/in/prince-yadav</a></p>
-            <p>GitHub: <a href="https://github.com/warrior-hub" target="_blank">github.com/warrior-hub</a></p>
-        </section>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i><a href="mailto:Jnvianprince@gmail.com">Jnvianprince@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i><a href="tel:+918470937935">+91-8470937935</a></p>
+            <p><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/prince-yadav-9b4060305/" target="_blank">linkedin.com/in/prince-yadav</a></p>
+            <p><i class="fab fa-github"></i><a href="https://github.com/warrior-hub" target="_blank">github.com/warrior-hub</a></p>
+        </div>
     </div>
+    <div class="right-column">
+        <div class="about-section">
+            <hr>
+            <h2>About Me</h2>
+            <p>Hi, I'm Prince Yadav, an IT student pursuing a Diploma in Information Technology from Government Polytechnic, Mahoba. I have a strong foundation in HTML, CSS, JavaScript, and Python, with a passion for building web applications. My goal is to become a Full-Stack Developer and contribute to impactful tech projects. Check out my projects on GitHub, and feel free to connect for opportunities or collaborations!
+              <br><br><i>Available for internships and entry-level opportunities in
+                the IT field.
+                </i>
+            </p>
+        </div>
+        <hr>
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML, CSS, JavaScript</li>
+            <li>Python, NumPy, Pandas</li>
+            <li>Version Control (Git, GitHub)</li>
+        </ul>
+        <hr>
+        <h2>Projects</h2>
+<ul>
+    <li class="project-item">
+        <span class="project-name">Portfolio Website</span>
+        <span class="project-links">
+            <a href="https://github.com/warrior-hub/portfolio" target="_blank">GitHub</a> |
+            <a href="https://warrior-hub.github.io/portfolio" target="_blank">Live Demo</a>
+        </span>
+    </li>
+    <li class="project-item">
+        <span class="project-name">Myntra Clone</span>
+        <span class="project-links">
+            <a href="https://github.com/warrior-hub/myntra-clone" target="_blank">GitHub</a> |
+            <a href="https://warrior-hub.github.io/myntra-clone" target="_blank">Live Demo</a>
+        </span>
+    </li>
+    <li class="project-item">
+        <span class="project-name">Expense Tracker</span>
+        <span class="project-links">
+            <a href="https://github.com/warrior-hub/Expense_Tracker" target="_blank">GitHub</a> |
+            <a href="https://warrior-hub.github.io/Expense_Tracker/" target="_blank">Live Demo</a>
+        </span>
+    </li>
+    <li class="project-item">
+        <span class="project-name">Quiz App</span>
+        <span class="project-links">
+            <a href="https://github.com/warrior-hub/quiz-app" target="_blank">GitHub</a> |
+            <a href=" https://warrior-hub.github.io/quiz-app/" target="_blank">Live Demo</a>
+        </span>
+    </li>
+    <li class="project-item">
+        <span class="project-name">To-Do List</span>
+        <span class="project-links">
+            <a href="https://github.com/warrior-hub/to-do-list" target="_blank">GitHub</a> |
+            <a href="https://warrior-hub.github.io/to-do-list/" target="_blank">Live Demo</a>
+        </span>
+    </li>
+    <li class="project-item">
+        <span class="project-name">Weather App</span>
+        <span class="project-links">
+            <a href="https://github.com/warrior-hub/weather" target="_blank">GitHub</a> |
+            <a href=" https://warrior-hub.github.io/weather/" target="_blank">Live Demo</a>
+        </span>
+    </li>
+</ul><hr>
+        <h2>Education</h2>
+        <p><b>Diploma in Information Technology</b><br>Government Polytechnic, Mahoba (2023 - Present)</p>
+        <p><b>High School</b><br>Jawahar Navodaya Vidyalaya (Completed in 2023)</p><hr></b>
+    </div>
+</div>
+<button class="download-btn" id="downloadBtn">Download as PDF</button>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2023 Prince Yadav. All rights reserved.</p>
-    </footer>
-
+<script>
+    // Function to hide the button after PDF download
+    document.getElementById('downloadBtn').addEventListener('click', function() {
+        window.print(); // Trigger the print dialog
+        this.classList.add('hide'); // Hide the button after download
+    });
+</script>
 </body>
 </html> 

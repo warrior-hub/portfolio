@@ -1,190 +1,616 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prince Yadav - Portfolio</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
-        a {
-            color: #28a745;
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-        }
-
-        a:hover {
-            color: #218838;
-        }
-
-        /* Header Section */
-        header {
-            background: linear-gradient(to right, #28a745, #218838);
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 1.5rem;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.8rem;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            background: #333;
-            padding: 15px;
-        }
-
-        nav a {
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #28a745;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1100px;
-            margin: 20px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .section h2 {
-            color: #28a745;
-            border-bottom: 3px solid #28a745;
-            padding-bottom: 5px;
-            font-size: 2rem;
-            margin-bottom: 15px;
-        }
-
-        .project-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-
-        .project-links a {
-            display: block;
-            padding: 15px;
-            background: #28a745;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .project-links a:hover {
-            background: #218838;
-            transform: scale(1.05);
-        }
-
-        /* Footer */
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 30px;
-        }
-
-        footer a {
-            color: #28a745;
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .project-links {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prince Yadav - Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 120px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.1);
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .hero .subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .btn-primary-custom {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+      border: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: white;
+      display: inline-block;
+    }
+    
+    .btn-primary-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      color: white;
+    }
+    
+    .section-padding {
+      padding: 80px 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: #2c3e50;
+    }
+    
+    .card-custom {
+      background: white;
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border: none;
+      height: 100%;
+    }
+    
+    .card-custom:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .skill-bar {
+      background: #e9ecef;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    
+    .skill-progress {
+      padding: 8px 15px;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      transition: width 2s ease;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .project-img {
+      height: 200px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+    
+    .social-btn {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 5px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .social-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .github-btn { background: #333; color: white; }
+    .linkedin-btn { background: #0077b5; color: white; }
+    .email-btn { background: #ea4335; color: white; }
+    
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .form-control {
+      border: 2px solid #e9ecef;
+      border-radius: 10px;
+      padding: 12px 15px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-control:focus {
+      border-color: #667eea;
+      box-shadow: none;
+    }
+    
+    footer {
+      background: #2c3e50;
+      color: white;
+      padding: 3rem 0 1rem;
+    }
+    
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #667eea;
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: none;
+      z-index: 1000;
+    }
+    
+    .back-to-top:hover {
+      background: #5a67d8;
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .hero .subtitle { font-size: 1.1rem; }
+      .section-title { font-size: 2rem; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Prince Yadav</h1>
-        <p>Web Developer | Programmer | Designer</p>
-    </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(44, 62, 80, 0.95); backdrop-filter: blur(10px);">
     <div class="container">
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <p>I am a passionate and dedicated Information Technology student, currently pursuing my Diploma in IT from Government Polytechnic, Mahoba. With a strong foundation in HTML, CSS, JavaScript, and Python, I enjoy building web applications and exploring new technologies.
-
-              <br>  Currently, I am focusing on Data Structures and Algorithms (DSA) to enhance my problem-solving skills. My goal is to become a Full-Stack Developer and contribute to innovative tech solutions.
-                
-               <br> I am eager to apply my knowledge in a real-world environment and open to internship opportunities, collaborations, and learning experiences. Check out my projects on GitHub and feel free to connect with me! 
-            <br><br>
-        <i>Available for internships and entry-level opportunities in
-            the IT field.</i></p>
-
-
-        </section>
-
-        <section id="skills" class="section">
-            <h2>Skills</h2>
-            <ul>
-                <li>HTML, CSS, JavaScript</li>
-                <li>Python, Flask</li>
-                <li>Version Control (Git, GitHub)</li>
-            </ul>
-        </section>
-
-        <section id="projects" class="section">
-            <h2>Projects</h2>
-            <div class="project-links">
-                <a href="https://warrior-hub.github.io/myntra-clone/" target="_blank">Myntra Clone</a>
-                <a href="https://warrior-hub.github.io/to-do-list/" target="_blank">To-Do List</a>
-                <a href="https://warrior-hub.github.io/quiz-app/" target="_blank">Quiz App</a>
-                <a href="https://warrior-hub.github.io/weather/" target="_blank">Weather App</a>
-                <a href=" https://warrior-hub.github.io/Expense_Tracker/" target="_blank">Expense Tracker</a>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:Jnvianprince@gmail.com">Jnvianprince@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/warrior-hub" target="_blank">github.com/warrior-hub</a></p>
-        </section>
+      <a class="navbar-brand fw-bold" href="#">Prince Yadav</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <footer>
-        <p>&copy; 2025 Prince Yadav. All rights reserved.</p>
-    </footer>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Hi, I'm <span style="color:#ffd700;">Prince Yadav</span></h1>
+        <p class="subtitle">IT Student | MERN Stack Developer | Problem Solver</p>
+        <a href="#about" class="btn-primary-custom">Explore My Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section-padding" style="background: #f8f9fa;">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4 text-center mb-4">
+          <img src="./1746696390423.jpg" 
+               alt="Prince Yadav" 
+               class="img-fluid rounded-circle"
+               style="width: 280px; height: 280px; object-fit: cover; border: 5px solid #667eea;">
+        </div>
+        <div class="col-lg-8">
+          <h2 class="mb-4" style="color: #2c3e50; font-weight: 700;">About Me</h2>
+          <p class="lead mb-4">
+            Hello! I'm <strong>Prince Yadav</strong>, a passionate IT student with a strong focus on 
+            <strong>Web Development</strong> and <strong>Problem Solving</strong>.
+          </p>
+          <p class="mb-4">
+            Currently diving deep into the <strong>MERN Stack</strong> and sharpening my skills in 
+            <strong>Data Structures & Algorithms</strong>. I'm committed to becoming a skilled 
+            <strong>Software Engineer</strong> and love contributing to open source projects.
+          </p>
+          <p class="mb-4">
+            When I'm not coding, you'll find me exploring new technologies, reading tech blogs, 
+            or enjoying a perfect combination of ☕ + 💻.
+          </p>
+          <a href="#projects" class="btn-primary-custom">View My Projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Skills & Technologies</h2>
+      
+      <div class="row g-4">
+        <!-- Frontend Skills -->
+        <div class="col-lg-6">
+          <div class="card-custom">
+            <h4 class="mb-4" style="color: #667eea;">🌐 Frontend Development</h4>
+            
+            <div class="mb-3">
+              <div class="d-flex justify-content-between mb-2">
+                <span>HTML5</span>
+                <span>95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%; background: linear-gradient(45deg, #e34c26, #f06529);">95%</div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <div class="d-flex justify-content-between mb-2">
+                <span>CSS3</span>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%; background: linear-gradient(45deg, #1572b6, #33a9dc);">85%</div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <div class="d-flex justify-content-between mb-2">
+                <span>JavaScript</span>
+                <span>75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 75%; background: linear-gradient(45deg, #f7df1e, #ffda3e);">75%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Backend Skills -->
+        <div class="col-lg-6">
+          <div class="card-custom">
+            <h4 class="mb-4" style="color: #667eea;">💻 Programming & Backend</h4>
+            
+            <div class="mb-3">
+              <div class="d-flex justify-content-between mb-2">
+                <span>Python</span>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%; background: linear-gradient(45deg, #3776ab, #4b8bbe);">80%</div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <div class="d-flex justify-content-between mb-2">
+                <span>Java</span>
+                <span>70%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 70%; background: linear-gradient(45deg, #ed8b00, #f89500);">70%</div>
+              </div>
+            </div>
+            
+            <div class="mb-3">
+              <div class="d-flex justify-content-between mb-2">
+                <span>C Programming</span>
+                <span>65%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 65%; background: linear-gradient(45deg, #00599c, #004482);">65%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Tools & Technologies -->
+      <div class="text-center mt-5">
+        <h4 class="mb-4">🛠️ Tools & Technologies</h4>
+        <div class="d-flex flex-wrap justify-content-center gap-3">
+          <span class="badge bg-danger fs-6 p-2">Git</span>
+          <span class="badge bg-dark fs-6 p-2">GitHub</span>
+          <span class="badge bg-primary fs-6 p-2">VS Code</span>
+          <span class="badge bg-success fs-6 p-2">Node.js</span>
+          <span class="badge bg-info fs-6 p-2">Bootstrap</span>
+          <span class="badge bg-warning text-dark fs-6 p-2">MySQL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- Projects Section -->
+<section id="projects" class="section-padding" style="background: #f8f9fa;">
+  <div class="container">
+    <h2 class="section-title">Featured Projects</h2>
+    
+    <div class="row g-4">
+
+      <!-- Project 1 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <div class="project-img">🛍️</div>
+          <div class="p-4">
+            <h5 class="fw-bold mb-3">Myntra Clone</h5>
+            <p class="text-muted mb-3">A responsive e-commerce website clone of Myntra built with HTML, CSS, JS, and Bootstrap showcasing product listing and cart functionality.</p>
+            <div class="d-flex gap-2">
+              <a href="https://github.com/warrior-hub/myntra-clone" class="btn btn-outline-dark btn-sm">GitHub</a>
+              <a href="#" class="btn btn-success btn-sm">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <div class="project-img">🏨</div>
+          <div class="p-4">
+            <h5 class="fw-bold mb-3">Resort Management System</h5>
+            <p class="text-muted mb-3">A comprehensive Java-based GUI application for managing resort bookings, customer data, and billing operations.</p>
+            <div class="d-flex gap-2">
+              <a href="https://github.com/warrior-hub/resort-management-system" class="btn btn-outline-dark btn-sm">GitHub</a>
+              <a href="#" class="btn btn-success btn-sm">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <div class="project-img">📊</div>
+          <div class="p-4">
+            <h5 class="fw-bold mb-3">DSA Problem Tracker</h5>
+            <p class="text-muted mb-3">A Python-based CLI tool to practice, track, and analyze Data Structures & Algorithms problem-solving progress.</p>
+            <div class="d-flex gap-2">
+              <a href="https://github.com/warrior-hub/dsa-problem-tracker" class="btn btn-outline-dark btn-sm">GitHub</a>
+              <a href="#" class="btn btn-success btn-sm">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <div class="project-img">☀️</div>
+          <div class="p-4">
+            <h5 class="fw-bold mb-3">Weather App</h5>
+            <p class="text-muted mb-3">A web application to fetch real-time weather updates using OpenWeatherMap API and display it in a clean UI.</p>
+            <div class="d-flex gap-2">
+              <a href="https://github.com/warrior-hub/weather-app" class="btn btn-outline-dark btn-sm">GitHub</a>
+              <a href="#" class="btn btn-success btn-sm">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <div class="project-img">💻</div>
+          <div class="p-4">
+            <h5 class="fw-bold mb-3">Product Showcase HTML</h5>
+            <p class="text-muted mb-3">A simple and responsive HTML/CSS project to showcase products with cards, images, and details for portfolio purposes.</p>
+            <div class="d-flex gap-2">
+              <a href="https://github.com/warrior-hub/product-showcase-html" class="btn btn-outline-dark btn-sm">GitHub</a>
+              <a href="#" class="btn btn-success btn-sm">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="col-lg-4 col-md-6">
+        <div class="project-card">
+          <div class="project-img">💰</div>
+          <div class="p-4">
+            <h5 class="fw-bold mb-3">Expense Tracker</h5>
+            <p class="text-muted mb-3">A personal finance management tool to track income and expenses with visualization charts and summaries.</p>
+            <div class="d-flex gap-2">
+              <a href="https://github.com/warrior-hub/expense-tracker" class="btn btn-outline-dark btn-sm">GitHub</a>
+              <a href="#" class="btn btn-success btn-sm">Live Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section-padding">
+    <div class="container">
+      <h2 class="section-title">Let's Connect</h2>
+      
+      <div class="row g-5">
+        <!-- Contact Info -->
+        <div class="col-lg-5">
+          <div class="card-custom h-100">
+            <h4 class="mb-4">Get in Touch</h4>
+            <p class="mb-4">I'm always excited to collaborate on new projects, discuss ideas, or explore opportunities. Feel free to reach out!</p>
+            
+            <div class="mb-4">
+              <h6 class="fw-bold">📧 Email</h6>
+              <p class="text-muted">jnvianprince@gmail.com</p>
+            </div>
+            
+            <div class="mb-4">
+              <h6 class="fw-bold">🌐 Social Media</h6>
+              <div class="d-flex flex-column gap-2">
+                <a href="https://github.com/warrior-hub" target="_blank" class="social-btn github-btn">🐙 GitHub</a>
+                <a href="https://www.linkedin.com/in/prince-yadav-9b4060305/" target="_blank" class="social-btn linkedin-btn">💼 LinkedIn</a>
+                <a href="mailto:jnvianprince@gmail.com" class="social-btn email-btn">📩 Email Me</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="col-lg-7">
+          <div class="contact-form">
+            <h4 class="mb-4">Send Me a Message</h4>
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6">
+                  <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="col-12">
+                  <input type="text" class="form-control" placeholder="Subject" required>
+                </div>
+                <div class="col-12">
+                  <textarea class="form-control" rows="6" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-primary-custom w-100">Send Message 🚀</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8">
+          <h5 class="fw-bold mb-3">Prince Yadav</h5>
+          <p class="mb-4">IT Student | Web Developer | Problem Solver<br>
+          Always learning, building, and contributing to the tech community.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <h6 class="fw-bold mb-3">Quick Links</h6>
+          <div class="d-flex flex-column">
+            <a href="#about" class="text-light text-decoration-none mb-2">About</a>
+            <a href="#skills" class="text-light text-decoration-none mb-2">Skills</a>
+            <a href="#projects" class="text-light text-decoration-none mb-2">Projects</a>
+            <a href="#contact" class="text-light text-decoration-none">Contact</a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="text-center">
+        <p class="mb-0">© 2025 Prince Yadav. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+    ↑
+  </button>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Back to top button functionality
+    window.addEventListener('scroll', function() {
+      const backToTop = document.getElementById('backToTop');
+      if (window.pageYOffset > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Skill bar animation
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const progressBars = entry.target.querySelectorAll('.skill-progress');
+          progressBars.forEach(bar => {
+            bar.style.width = bar.textContent;
+          });
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('#skills .card-custom').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
 </body>
 </html>
